@@ -1,0 +1,19 @@
+﻿@model airplane_ticketsystem.Models.EntityModel
+@{
+    ViewBag.Title = "Info";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Info</h2>
+<div>
+<form method="POST" asp-controller ="Home" asp-action ="login"> 
+    Username:
+    <input type ="text" class="form-control" id="usr" name ="usr">
+    <br>
+    Password:
+    <input type="password" class="form-control" id="pw" name ="pw">
+    <input  type="submit" value="Login" class="submit">
+    
+</form>
+</div>
+
+

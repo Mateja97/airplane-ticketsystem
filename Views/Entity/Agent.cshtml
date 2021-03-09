@@ -1,0 +1,54 @@
+@model airplane_ticketsystem.Models.FlightListModel
+@{
+    ViewBag.Title = "Info";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Insert new Flight</h2>
+<form method="POST" asp-controller ="Agent" asp-action ="addNewFlight">
+Start Destination:
+<select name="st">
+  <option value="Beograd">Beograd</option>
+  <option value="Nis">Nis</option>
+  <option value="Kraljevo">Kraljevo</option>
+  <option value="Pristina">Pristina</option>
+</select>
+End Destination:
+<select name="ed">
+  <option value="Beograd">Beograd</option>
+  <option value="Nis">Nis</option>
+  <option value="Kraljevo">Kraljevo</option>
+  <option value="Pristina">Pristina</option>
+</select>
+<br><br>
+<label for="numSeats">Number of seats</label>
+    <input type="number" name="nums" min="1" style="width: 4em"/>
+<label for="numTransfers">Number of transfers</label>
+    <input type="number" name="numt" min="0" style="width: 4em"/>
+<br><br>
+<label for="date">Date:</label>
+<input type="date" id="date" name="d"><br><br>
+<input type="submit" value="Add" class="submit">
+</form>
+
+<style>
+    /* Keyword value/name of color */
+    .div-1 {
+        background-color: red;
+    }
+    
+    /* Hexadecimal value */
+    .div-2 {
+       background-color: white;	 
+    }    
+</style>
+@foreach (FlightModel flight in Model.FlightList)
+{
+    <div style='background-color: @(flight.numSeats <5 ? "#ff726f" : "white");'>
+        Flight start: @flight.startDestination<br>
+        Flight end: @flight.endDestination<br>
+        Date: @flight.date.ToString("dd/MM/yyyy")<br>
+        Number of seats: @flight.numSeats<br>
+        Number of transfers: @flight.numTransfers<br>
+    </div>
+}

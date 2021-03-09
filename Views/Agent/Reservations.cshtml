@@ -1,0 +1,19 @@
+@model airplane_ticketsystem.Models.ReservationListModel
+@{
+    ViewBag.Title = "Info";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (ReservationModel reservation in Model.ReservationList)
+{
+    <div>
+        Username: @reservation.username
+        Flight: @reservation.flight.startDestination - @reservation.flight.endDestination on: @reservation.flight.date.ToString("dd/MM/yyyy")<br>
+        @if(reservation.accepted == true){
+            <span color="gray">Accepted </span>
+        }else{
+            @Html.ActionLink("Accept","AcceptReservation","Agent", @reservation.reservationId)
+        }
+    </div>
+    <br><br>
+}
