@@ -1,0 +1,16 @@
+@model airplane_ticketsystem.Models.ReservationListModel
+@{
+    ViewBag.Title = "Info";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (ReservationModel reservation in Model.ReservationList)
+{
+    <div>
+        ReservationID: @reservation.reservationId
+        FlightID: @reservation.flightID<br>
+        Number of seats: @reservation.numSeats<br>
+        Status: @if(@reservation.accepted){<span>Accepted</span>}else{<span>Pending</span>}
+    </div>
+    <br><br>
+}

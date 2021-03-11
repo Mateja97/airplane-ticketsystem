@@ -15603,11 +15603,6 @@
   "RootNamespace": "airplane_ticketsystem",
   "Documents": [
     {
-      "FilePath": "/home/mateja/Desktop/get/airplane-ticketsystem/Views/Home/Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "/home/mateja/Desktop/get/airplane-ticketsystem/Views/Shared/_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
@@ -15618,23 +15613,28 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/mateja/Desktop/get/airplane-ticketsystem/Views/Agent/Index.cshtml",
+      "TargetPath": "Views\\Agent\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/mateja/Desktop/get/airplane-ticketsystem/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/home/mateja/Desktop/get/airplane-ticketsystem/Views/Entity/Agent.cshtml",
-      "TargetPath": "Views\\Entity\\Agent.cshtml",
+      "FilePath": "/home/mateja/Desktop/get/airplane-ticketsystem/Views/Admin/Flights.cshtml",
+      "TargetPath": "Views\\Admin\\Flights.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/mateja/Desktop/get/airplane-ticketsystem/Views/CustomUser/Reservations.cshtml",
+      "TargetPath": "Views\\CustomUser\\Reservations.cshtml",
       "FileKind": "mvc"
     },
     {
       "FilePath": "/home/mateja/Desktop/get/airplane-ticketsystem/Views/Shared/Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/mateja/Desktop/get/airplane-ticketsystem/Views/Entity/Index.cshtml",
-      "TargetPath": "Views\\Entity\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15653,13 +15653,18 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/home/mateja/Desktop/get/airplane-ticketsystem/Views/Entity/Admin.cshtml",
-      "TargetPath": "Views\\Entity\\Admin.cshtml",
+      "FilePath": "/home/mateja/Desktop/get/airplane-ticketsystem/Views/CustomUser/Index.cshtml",
+      "TargetPath": "Views\\CustomUser\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/home/mateja/Desktop/get/airplane-ticketsystem/Views/Entity/CustomUser.cshtml",
-      "TargetPath": "Views\\Entity\\CustomUser.cshtml",
+      "FilePath": "/home/mateja/Desktop/get/airplane-ticketsystem/Views/Admin/AgentActivity.cshtml",
+      "TargetPath": "Views\\Admin\\AgentActivity.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/mateja/Desktop/get/airplane-ticketsystem/Views/Admin/Index.cshtml",
+      "TargetPath": "Views\\Admin\\Index.cshtml",
       "FileKind": "mvc"
     }
   ],

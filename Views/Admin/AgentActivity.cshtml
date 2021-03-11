@@ -1,0 +1,12 @@
+@model List<Tuple<string, int>>
+@{
+    ViewBag.Title = "Agents Activities";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach(Tuple<string,int> agent in Model){
+    <div>
+        @agent.Item1 has accepted @agent.Item2 reservations.
+    </div>
+    <br>
+}

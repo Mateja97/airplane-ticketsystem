@@ -1,0 +1,20 @@
+@model airplane_ticketsystem.Models.FlightListModel
+@{
+    ViewBag.Title = "Flights";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (FlightModel flight in Model.FlightList)
+{
+    <div>
+        Flight start: @flight.startDestination<br>
+        Flight end: @flight.endDestination<br>
+        Date: @flight.date.ToString("dd/MM/yyyy")<br>
+        Number of seats: @flight.numSeats<br>
+        Number of transfers: @flight.numTransfers<br>
+         @using (Html.BeginForm("RemoveFlight", "Admin",flight, FormMethod.Post)){
+           <button type="submit">Remove</button>
+           }
+    </div>
+    <br>
+}

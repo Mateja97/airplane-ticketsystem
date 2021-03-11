@@ -23,14 +23,33 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         }else{
-
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Login">Home</a>
-                        </li>
                           @if(airplane_ticketsystem.Controllers.HomeController.logined.type == EntityType.Agent){
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Agent" asp-action="Index">Home</a>
+                                </li>
+                              
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Agent" asp-action="Reservations">View Reservations</a>
                                  </li>
+                            }else if(airplane_ticketsystem.Controllers.HomeController.logined.type == EntityType.User){
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="CustomUser" asp-action="Index">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="CustomUser" asp-action="Reservations">View Reservation</a>
+                                </li>
+                            }
+                            else if(airplane_ticketsystem.Controllers.HomeController.logined.type == EntityType.Admin){
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Flights">Flights</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="AgentActivity">Agents Activity</a>
+                                </li>
                             }
                         <li class="nav-item">
                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Logout</a>

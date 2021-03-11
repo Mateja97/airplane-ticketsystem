@@ -1,5 +1,3 @@
-using System;
-
 namespace airplane_ticketsystem.Models
 {
     public class ErrorViewModel

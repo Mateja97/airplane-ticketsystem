@@ -1,0 +1,45 @@
+@model airplane_ticketsystem.Models.FlightListModel
+@{
+    ViewBag.Title = "Info";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="POST" asp-controller ="CustomUser" asp-action ="showFlights">
+Choose start destination:
+<select name="sd">
+  <option value="Beograd">Beograd</option>
+  <option value="Nis">Nis</option>
+  <option value="Kraljevo">Kraljevo</option>
+  <option value="Pristina">Pristina</option>
+</select>
+Choose end destination:
+<select name="ed">
+  <option value="Beograd">Beograd</option>
+  <option value="Nis">Nis</option>
+  <option value="Kraljevo">Kraljevo</option>
+  <option value="Pristina">Pristina</option>
+</select>
+<br>
+Transfers included:
+<input type="checkbox" id="transfers" name="transfers" value="true">
+<br>
+<input type="submit" value="Search" class="submit">
+</form>
+
+
+@foreach (FlightModel flight in Model.FlightList)
+{
+    <div>
+        Flight start: @flight.startDestination<br>
+        Flight end: @flight.endDestination<br>
+        Date: @flight.date.ToString("dd/MM/yyyy")<br>
+        Number of seats: @flight.numSeats<br>
+        Number of transfers: @flight.numTransfers<br>
+       @using (Html.BeginForm("Book", "CustomUser",new { fID = flight.flightId}, FormMethod.Post)){
+            <span>SelectList number of Seats</span>
+           <input type="number" name ="ns" min = "1" size = "10">
+           <button type="submit">Book</button>
+           }
+    </div>
+    <br>
+}

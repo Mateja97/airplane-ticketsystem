@@ -1,37 +1,52 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using airplane_ticketsystem.Models;
 using airplane_ticketsystem.Controllers;
+using System.Threading.Tasks;
 namespace airplane_ticketsystem{
     public class AgentController : Controller{
         
-        public static List<FlightModel> flights = airplane_ticketsystem.Controllers.HomeController.flights;
-        public static List<ReservationModel> reservations = airplane_ticketsystem.Controllers.HomeController.reservations;
+        public FlightListModel flights;
+        public  ReservationListModel reservations;
         private MySqlDatabase MySqlDatabase { get; set; }
         public AgentController(MySqlDatabase mySqlDatabase)
         {
             this.MySqlDatabase = mySqlDatabase;
         }
-         [HttpPost]
-        public IActionResult addNewFlight(Destination st,Destination ed,int nums,int numt,DateTime d)
+        [HttpGet] 
+        public async Task<IActionResult> Index(){
+            this.flights = new FlightListModel(this.MySqlDatabase);
+            return View(await this.flights.GetLatest());
+        }
+        [HttpPost]
+        public  async Task<IActionResult> addNewFlight(Destination st,Destination ed,int nums,int numt,DateTime d)
         {   
-            flights.Add(
-               new FlightModel(){startDestination= st,endDestination = ed,numSeats = nums, numTransfers = numt, date = d}
-               );
-            return View("~/Views/Entity/Agent.cshtml",new FlightListModel(flights));
+           FlightModel flight = 
+               new FlightModel(MySqlDatabase){startDestination= st,endDestination = ed,numSeats = nums, numTransfers = numt, date = d}
+               ;
+            await flight.InsertAsync();
+            return Redirect("Index");
          }
 
-        public IActionResult Reservations(){
-            return View(new ReservationListModel(reservations));
+        public async Task<IActionResult> Reservations(){
+
+            this.reservations = new ReservationListModel(this.MySqlDatabase);
+            
+            return View(await this.reservations.GetLatest());
         }
 
-        public IActionResult AcceptReservation(int id){
-            foreach(ReservationModel r in reservations){
-                if(r.reservationId == id)
-                    r.accepted = true;
+        public async Task<IActionResult> AcceptReservation(int id){
+            
+            this.reservations = new ReservationListModel(this.MySqlDatabase);
+            this.reservations = await this.reservations.GetLatest();
+
+            foreach(ReservationModel r in this.reservations.ReservationList){
+                if(r.reservationId == id){
+                    await r.AcceptReservation();
+                }
+                   
             }
-            return View("Reservations",new ReservationListModel(reservations));
+            return View("Reservations",await this.reservations.GetLatest());
         }
     }
 }

@@ -8,11 +8,15 @@
 {
     <div>
         Username: @reservation.username
-        Flight: @reservation.flight.startDestination - @reservation.flight.endDestination on: @reservation.flight.date.ToString("dd/MM/yyyy")<br>
+        FlightID: @reservation.flightID
+        Number of Seats: @reservation.numSeats;
         @if(reservation.accepted == true){
+            <br>
             <span color="gray">Accepted </span>
         }else{
-            @Html.ActionLink("Accept","AcceptReservation","Agent", @reservation.reservationId)
+            @using (Html.BeginForm("AcceptReservation", "Agent",new { id = reservation.reservationId}, FormMethod.Post)){
+           <button type="submit">Accept</button>
+           }
         }
     </div>
     <br><br>

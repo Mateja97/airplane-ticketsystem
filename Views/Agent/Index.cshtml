@@ -31,24 +31,14 @@ End Destination:
 <input type="submit" value="Add" class="submit">
 </form>
 
-<style>
-    /* Keyword value/name of color */
-    .div-1 {
-        background-color: red;
-    }
-    
-    /* Hexadecimal value */
-    .div-2 {
-       background-color: white;	 
-    }    
-</style>
 @foreach (FlightModel flight in Model.FlightList)
 {
-    <div style='background-color: @(flight.numSeats <5 ? "#ff726f" : "white");'>
+    <div style='background-color: @(flight.numSeats <5 ? "#ff726f" : "#90EE90");'>
         Flight start: @flight.startDestination<br>
         Flight end: @flight.endDestination<br>
         Date: @flight.date.ToString("dd/MM/yyyy")<br>
         Number of seats: @flight.numSeats<br>
         Number of transfers: @flight.numTransfers<br>
     </div>
+    <br>
 }
