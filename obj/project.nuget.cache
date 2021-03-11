@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "1HkrnHv9uYi4eN6I79Sd6i24zXfM2tY7v1IZ1tAo5Gisq35j/0YxY/bKWMxcrrovG0PU+ILk4hleCSckYno/sA==",
+  "dgSpecHash": "SHG6HvBCLHkbd8TEl9ZLnVjs9PjGCbO3KZuHdRMGfEcIRp3ecAEfw+MfsVu+GwDslfPCOP6O39d+f6Z0hNvFIA==",
   "success": true,
   "projectFilePath": "/home/mateja/Desktop/get/airplane-ticketsystem/airplane-ticketsystem.csproj",
   "expectedPackageFiles": [
     "/home/mateja/.nuget/packages/google.protobuf/3.5.1/google.protobuf.3.5.1.nupkg.sha512",
     "/home/mateja/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
+    "/home/mateja/.nuget/packages/microsoft.aspnet.cors/5.0.0/microsoft.aspnet.cors.5.0.0.nupkg.sha512",
+    "/home/mateja/.nuget/packages/microsoft.aspnet.signalr/2.4.1/microsoft.aspnet.signalr.2.4.1.nupkg.sha512",
     "/home/mateja/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
     "/home/mateja/.nuget/packages/microsoft.data.sqlclient/2.0.1/microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "/home/mateja/.nuget/packages/microsoft.data.sqlclient.sni.runtime/2.0.1/microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",
@@ -32,6 +34,8 @@
     "/home/mateja/.nuget/packages/microsoft.identitymodel.tokens/5.6.0/microsoft.identitymodel.tokens.5.6.0.nupkg.sha512",
     "/home/mateja/.nuget/packages/microsoft.netcore.platforms/3.1.0/microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "/home/mateja/.nuget/packages/microsoft.netcore.targets/1.1.3/microsoft.netcore.targets.1.1.3.nupkg.sha512",
+    "/home/mateja/.nuget/packages/microsoft.owin/4.1.1/microsoft.owin.4.1.1.nupkg.sha512",
+    "/home/mateja/.nuget/packages/microsoft.owin.cors/4.1.1/microsoft.owin.cors.4.1.1.nupkg.sha512",
     "/home/mateja/.nuget/packages/microsoft.win32.primitives/4.3.0/microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "/home/mateja/.nuget/packages/microsoft.win32.registry/4.7.0/microsoft.win32.registry.4.7.0.nupkg.sha512",
     "/home/mateja/.nuget/packages/microsoft.win32.systemevents/4.7.0/microsoft.win32.systemevents.4.7.0.nupkg.sha512",
@@ -40,6 +44,7 @@
     "/home/mateja/.nuget/packages/mysqlconnector/1.2.1/mysqlconnector.1.2.1.nupkg.sha512",
     "/home/mateja/.nuget/packages/netstandard.library/1.6.1/netstandard.library.1.6.1.nupkg.sha512",
     "/home/mateja/.nuget/packages/newtonsoft.json/10.0.1/newtonsoft.json.10.0.1.nupkg.sha512",
+    "/home/mateja/.nuget/packages/owin/1.0.0/owin.1.0.0.nupkg.sha512",
     "/home/mateja/.nuget/packages/pomelo.entityframeworkcore.mysql/5.0.0-alpha.2/pomelo.entityframeworkcore.mysql.5.0.0-alpha.2.nupkg.sha512",
     "/home/mateja/.nuget/packages/runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "/home/mateja/.nuget/packages/runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
@@ -145,6 +150,46 @@
       "warningLevel": 1,
       "message": "airplane-ticketsystem depends on MySql.Data (>= 8.0.0) but MySql.Data 8.0.0 was not found. An approximate best match of MySql.Data 8.0.11 was resolved.",
       "libraryId": "MySql.Data",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.Cors 5.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.Cors",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Owin 4.1.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Owin",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Owin.Cors 4.1.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Owin.Cors",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Owin 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Owin",
       "targetGraphs": [
         "net5.0"
       ]

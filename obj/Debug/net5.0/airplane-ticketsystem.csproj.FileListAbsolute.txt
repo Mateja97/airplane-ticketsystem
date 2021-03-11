@@ -82,3 +82,7 @@
 /home/mateja/Desktop/get/airplane-ticketsystem/obj/Debug/net5.0/Razor/Views/Admin/Index.cshtml.g.cs
 /home/mateja/Desktop/get/airplane-ticketsystem/obj/Debug/net5.0/Razor/Views/Admin/AgentActivity.cshtml.g.cs
 /home/mateja/Desktop/get/airplane-ticketsystem/obj/Debug/net5.0/Razor/Views/Admin/Flights.cshtml.g.cs
+/home/mateja/Desktop/get/airplane-ticketsystem/bin/Debug/net5.0/System.Web.Cors.dll
+/home/mateja/Desktop/get/airplane-ticketsystem/bin/Debug/net5.0/Microsoft.Owin.dll
+/home/mateja/Desktop/get/airplane-ticketsystem/bin/Debug/net5.0/Microsoft.Owin.Cors.dll
+/home/mateja/Desktop/get/airplane-ticketsystem/bin/Debug/net5.0/Owin.dll
