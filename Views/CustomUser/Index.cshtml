@@ -35,11 +35,17 @@ Transfers included:
         Date: @flight.date.ToString("dd/MM/yyyy")<br>
         Number of seats: @flight.numSeats<br>
         Number of transfers: @flight.numTransfers<br>
-       @using (Html.BeginForm("Book", "CustomUser",new { fID = flight.flightId}, FormMethod.Post)){
+        @using (Html.BeginForm("Book", "CustomUser",new { fID = flight.flightId}, FormMethod.Post)){
             <span>SelectList number of Seats</span>
-           <input type="number" name ="ns" min = "1" size = "10">
+           <input type="number" name ="ns" value ="1" min = "1" size = "10">
            <button type="submit">Book</button>
            }
+        @{
+          /*<span hidden id = "flightId">@flight.flightId</span>
+        <input type="number" id ="seats" min = "1" size = "10">
+        <button type="submit"id ="book">Book</button>  */
+        }
+         
     </div>
     <br>
 }

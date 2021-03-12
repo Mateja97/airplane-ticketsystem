@@ -31,6 +31,7 @@ namespace airplane_ticketsystem.Controllers
             using(var reader = await cmd.ExecuteReaderAsync()){
                 if (!reader.HasRows){
                     logined = null;
+                    TempData["alert"] = "<script>alert('Wrong username or password');</script>";
                     return View("Index");
                     }else{
                         await reader.ReadAsync();

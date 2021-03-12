@@ -74,7 +74,6 @@
 /home/mateja/Desktop/get/airplane-ticketsystem/bin/Debug/net5.0/Pomelo.EntityFrameworkCore.MySql.dll
 /home/mateja/Desktop/get/airplane-ticketsystem/bin/Debug/net5.0/Humanizer.dll
 /home/mateja/Desktop/get/airplane-ticketsystem/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Design.dll
-/home/mateja/Desktop/get/airplane-ticketsystem/obj/Debug/net5.0/Razor/Views/Agent/Reservations.cshtml.g.cs
 /home/mateja/Desktop/get/airplane-ticketsystem/obj/Debug/net5.0/Razor/Views/Agent/Index.cshtml.g.cs
 /home/mateja/Desktop/get/airplane-ticketsystem/obj/Debug/net5.0/Razor/Views/CustomUser/Index.cshtml.g.cs
 /home/mateja/Desktop/get/airplane-ticketsystem/obj/Debug/net5.0/Razor/Views/CustomUser/Reservations.cshtml.g.cs
@@ -86,3 +85,11 @@
 /home/mateja/Desktop/get/airplane-ticketsystem/bin/Debug/net5.0/Microsoft.Owin.dll
 /home/mateja/Desktop/get/airplane-ticketsystem/bin/Debug/net5.0/Microsoft.Owin.Cors.dll
 /home/mateja/Desktop/get/airplane-ticketsystem/bin/Debug/net5.0/Owin.dll
+/home/mateja/Desktop/get/airplane-ticketsystem/obj/Debug/net5.0/Razor/Views/Agent/Reservations.cshtml.g.cs
+/home/mateja/Desktop/get/airplane-ticketsystem/bin/Debug/net5.0/System.Web.Mvc.dll
+/home/mateja/Desktop/get/airplane-ticketsystem/bin/Debug/net5.0/System.Web.Razor.dll
+/home/mateja/Desktop/get/airplane-ticketsystem/bin/Debug/net5.0/System.Web.Helpers.dll
+/home/mateja/Desktop/get/airplane-ticketsystem/bin/Debug/net5.0/System.Web.WebPages.Deployment.dll
+/home/mateja/Desktop/get/airplane-ticketsystem/bin/Debug/net5.0/System.Web.WebPages.Razor.dll
+/home/mateja/Desktop/get/airplane-ticketsystem/bin/Debug/net5.0/System.Web.WebPages.dll
+/home/mateja/Desktop/get/airplane-ticketsystem/bin/Debug/net5.0/Microsoft.Web.Infrastructure.dll

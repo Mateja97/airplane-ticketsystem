@@ -8,6 +8,6 @@ Create table Reservations
    agent varchar(100) not null,
    numSeats int not null
 );
-insert into  Reservations (username,flightID,accepted,agent,numSeats) values  ('trta1',1,false,'',1);
-insert into  Reservations (username,flightID,accepted,agent,numSeats) values  ('trta1',2,false,'',2);
-insert into  Reservations (username,flightID,accepted,agent,numSeats) values  ('trta3',3,false,'',3);
+insert into  Reservations (username,flightID,accepted,agent,numSeats) values  ('user1',1,false,'',1);
+insert into  Reservations (username,flightID,accepted,agent,numSeats) values  ('user1',2,false,'',2);
+insert into  Reservations (username,flightID,accepted,agent,numSeats) values  ('user1',3,false,'',3);

@@ -6,7 +6,8 @@
 
 @foreach(Tuple<string,int> agent in Model){
     <div>
-        @agent.Item1 has accepted @agent.Item2 reservations.
+        <h3> @agent.Item1</h3>
+        Accepted reservations: @agent.Item2 
     </div>
     <br>
 }

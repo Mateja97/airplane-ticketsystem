@@ -10,7 +10,7 @@
         ReservationID: @reservation.reservationId
         FlightID: @reservation.flightID<br>
         Number of seats: @reservation.numSeats<br>
-        Status: @if(@reservation.accepted){<span>Accepted</span>}else{<span>Pending</span>}
+        Status: <div id ="@reservation.reservationId">@if(@reservation.accepted){<span>Accepted</span>}else{<span>Pending</span>}</div>
     </div>
     <br><br>
 }

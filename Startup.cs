@@ -3,8 +3,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
-
+using airplane_ticketsystem.Hubs;
+using Microsoft.AspNetCore.SignalR;
+using System.Net;
 namespace airplane_ticketsystem
 {
     public class Startup
@@ -22,8 +23,18 @@ namespace airplane_ticketsystem
             services.AddControllersWithViews();
             //MySql
             services.AddTransient<MySqlDatabase>(_ => 
-            new MySqlDatabase("server=localhost; database=airplane_tickets; uid=mateja; pwd=Mateja1997!;"));   
+            new MySqlDatabase("server=localhost; database=airplane_tickets; uid=mateja; pwd=Mateja1997!;"));
+            
+            services.AddSignalR(options => 
+            { 
+                options.EnableDetailedErrors = true; 
+                
+            }); 
+            ServicePointManager.ServerCertificateValidationCallback +=
+                  (sender, certificate, chain, sslPolicyErrors) => true;
+              
         }
+            
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -50,7 +61,20 @@ namespace airplane_ticketsystem
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 
+
+                endpoints.MapHub<FlightsHub>("/flightsHub");
+                
             });
+            app.Use(async (context, next) =>
+            {
+                var hubContext = context.RequestServices
+                            .GetRequiredService<IHubContext<FlightsHub>>();
+                            if (next != null)
+                            {
+                                await next.Invoke();
+                                }
+            });
+            
             
         }
     }

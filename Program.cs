@@ -1,11 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using airplane_ticketsystem.Hubs;
+using Microsoft.AspNetCore.SignalR;
 
 namespace airplane_ticketsystem
 {
@@ -13,7 +9,9 @@ namespace airplane_ticketsystem
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            var host = CreateHostBuilder(args).Build();
+            var hubContext = host.Services.GetService(typeof(IHubContext<FlightsHub>));
+            host.Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

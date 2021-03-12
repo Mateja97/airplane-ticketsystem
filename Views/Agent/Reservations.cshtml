@@ -3,21 +3,26 @@
     ViewBag.Title = "Info";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-@foreach (ReservationModel reservation in Model.ReservationList)
+<div id="rList">
+ @foreach (ReservationModel reservation in Model.ReservationList)
 {
     <div>
+        <h3>ReservationID :@reservation.reservationId</h3>
         Username: @reservation.username
         FlightID: @reservation.flightID
-        Number of Seats: @reservation.numSeats;
+        Number of Seats: @reservation.numSeats
         @if(reservation.accepted == true){
             <br>
-            <span color="gray">Accepted </span>
+            <span  color="gray">Accepted </span>
         }else{
-            @using (Html.BeginForm("AcceptReservation", "Agent",new { id = reservation.reservationId}, FormMethod.Post)){
-           <button type="submit">Accept</button>
-           }
+            <form type = "post" asp-controller = "Agent" 
+            asp-action = "AcceptReservation"
+            asp-route-id = "@reservation.reservationId">
+            <button type="submit">Accept</button>
+            </form>   
         }
     </div>
     <br><br>
 }
+</div>
+
