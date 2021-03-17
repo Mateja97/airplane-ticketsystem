@@ -17,7 +17,10 @@
         }else{
             <form type = "post" asp-controller = "Agent" 
             asp-action = "AcceptReservation"
-            asp-route-id = "@reservation.reservationId">
+            asp-route-id = "@reservation.reservationId"
+            asp-route-seats ="@reservation.numSeats"
+            >
+            
             <button type="submit">Accept</button>
             </form>   
         }
