@@ -7,8 +7,6 @@ using Microsoft.AspNetCore.SignalR;
 namespace airplane_ticketsystem.Controllers{
     public class CustomUserController: Controller
     {
-        public FlightListModel flights;
-        public ReservationListModel reservations;
         private MySqlDatabase MySqlDatabase { get; set; }
         private IHubContext<FlightsHub> HubContext{ get; set; }
 
@@ -19,31 +17,27 @@ namespace airplane_ticketsystem.Controllers{
         }
         public IActionResult Index(){
             
-            if(flights == null){
-                return View( new FlightListModel(this.MySqlDatabase));
-            }
+            FlightListModel flights = new FlightListModel();
             return View(flights);
         }
         public async Task<IActionResult> showFlights(Destination sd,Destination ed,Boolean transfers){
 
-            this.flights = new FlightListModel(this.MySqlDatabase);
-            await this.flights.Filter(sd,ed,transfers);
-           
-            return View("Index",this.flights);
+            FlightListModel flights = await MySqlDatabase.FilterFlights(sd,ed,transfers);
+            return View("Index",flights);
 
         }
         public async Task<IActionResult> Reservations(){
-            this.reservations = new ReservationListModel(this.MySqlDatabase);
-            await this.reservations.SpecificUserReservations(airplane_ticketsystem.Controllers.HomeController.logined.username);
-            return View(this.reservations);
+            ReservationListModel reservations = await this.MySqlDatabase.SpecificUserReservations(airplane_ticketsystem.Controllers.HomeController.logined.username);     
+            return View(reservations);
         }
         public async Task<IActionResult> Book(int fID,int ns){
-            ReservationModel res = new ReservationModel(this.MySqlDatabase) {
+            ReservationModel res = new ReservationModel() {
                 username = airplane_ticketsystem.Controllers.HomeController.logined.username,
                 flightID = fID,
                 numSeats = ns
             };
-            await res.InsertAsync();
+                     
+            res.reservationId = await this.MySqlDatabase.addNewReservation(res);
             await this.HubContext.Clients.All.SendAsync("ReceiveReservation",res);
             return Redirect("Reservations");
             

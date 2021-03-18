@@ -80,7 +80,7 @@ namespace airplane_ticketsystem
         await cmd.ExecuteNonQueryAsync();
         flight.flightId = (int) cmd.LastInsertedId;
     }
-    public async Task addNewReservation(ReservationModel res)
+    public async Task<int> addNewReservation(ReservationModel res)
         {
             using var cmd = this.Connection.CreateCommand();
             cmd.CommandText = @"insert into  Reservations (username,flightID,accepted,agent,numSeats) VALUES (@usr,@fId,@active,@ag,@ns);";
@@ -91,6 +91,7 @@ namespace airplane_ticketsystem
             cmd.Parameters.AddWithValue("@ns",res.numSeats);
 
             await cmd.ExecuteNonQueryAsync();
+            return (int)cmd.LastInsertedId;
         }
     public async Task DeleteFlight(FlightModel flight)
     {

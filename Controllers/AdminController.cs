@@ -7,7 +7,7 @@ namespace airplane_ticketsystem{
 
     public class AdminController : Controller{
         private MySqlDatabase MySqlDatabase { get; set; }
-        List<Tuple<string,int>> agentActivites = new List<Tuple<string, int>>();
+    
         public AdminController(MySqlDatabase mySqlDatabase)
         {
             this.MySqlDatabase = mySqlDatabase;
@@ -18,36 +18,24 @@ namespace airplane_ticketsystem{
         }
 
         public async Task<IActionResult> Flights(){
-            FlightListModel fl = new FlightListModel(MySqlDatabase);
-            return View(await fl.GetLatest());
+            FlightListModel fl = await MySqlDatabase.GetFlights();
+            return View(fl);
         }
         public async Task<IActionResult>AgentActivity(){
-            using var cmd = MySqlDatabase.Connection.CreateCommand();
-            cmd.CommandText = @"SELECT agent,count(*) FROM Reservations where agent != '' GROUP BY agent;";
-            using (var reader = await cmd.ExecuteReaderAsync())
-            {
-                while (await reader.ReadAsync())
-                {
-                    agentActivites.Add(new Tuple<string,int>(reader.GetString(0),reader.GetInt32(1)));
-                }
-            }
+            List<Tuple<string,int>> agentActivites = await MySqlDatabase.getAgentActivity();
             return View(agentActivites);
         }
         public async Task<IActionResult> addNewUser(string usr,string pw,string type){
             
-            EntityModel entity = new EntityModel(this.MySqlDatabase){
-                username = usr,
-                password = pw,
-                type = (EntityType) Enum.Parse(typeof(EntityType),type, true)
-            };
-            await entity.InsertAsync();
+            await this.MySqlDatabase.addNewUser(usr,pw,type);
+            TempData["alert"] = "<script>alert('Successfully added');</script>";
             return View("Index");
         }
         public async Task<IActionResult> RemoveFlight(FlightModel flight){
-            FlightModel fl = new FlightModel(MySqlDatabase){
+            FlightModel fl = new FlightModel(){
                 flightId = flight.flightId
             };
-            await fl.DeleteAsync();
+            await MySqlDatabase.DeleteFlight(flight);
             return Redirect("Flights");
         }
 
